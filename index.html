@@ -1,69 +1,92 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Photo Uploader (50 Max)</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    h1 {
-      text-align: center;
-    }
-    input[type="file"] {
-      display: block;
-      margin: 20px auto;
-    }
-    #gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .photo {
-      width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noveltybrotography | Phoenix Portfolio</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Bold Brand Header */
+        .header {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-bottom: 4px solid #FF6B6B; /* Vibrant accent */
+        }
+        .brand {
+            font-size: 2.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .brand span {
+            color: #FF6B6B; /* Accent color for visual pop */
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem;
+            background: #f8f8f8;
+        }
+        .gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Footer with Socials */
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        .socials a {
+            color: #FF6B6B;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-  <h1>Upload up to 50 Photos</h1>
-  <input type="file" id="fileInput" multiple accept="image/*"/>
-  <div id="gallery"></div>
+    <!-- Brand Header -->
+    <div class="header">
+        <h1 class="brand">NOVELTY<span>BROTOGRAPHY</span></h1>
+        <p>Where Brotherhood Meets the Lens</p>
+    </div>
 
-  <script>
-    const fileInput = document.getElementById('fileInput');
-    const gallery = document.getElementById('gallery');
+    <!-- Phoenix Gallery -->
+    <div class="gallery">
+        <img src="https://via.placeholder.com/300/FF6B6B/FFFFFF?text=PHOENIX+1" alt="Phoenix Shoot">
+        <img src="https://via.placeholder.com/300/FF6B6B/FFFFFF?text=PHOENIX+2" alt="Phoenix Shoot">
+        <img src="https://via.placeholder.com/300/FF6B6B/FFFFFF?text=PHOENIX+3" alt="Phoenix Shoot">
+    </div>
 
-    fileInput.addEventListener('change', function() {
-      const files = Array.from(fileInput.files);
-      gallery.innerHTML = ''; // clear previous
-
-      if (files.length > 50) {
-        alert('You can only upload up to 50 photos.');
-        return;
-      }
-
-      files.forEach(file => {
-        if (file.type.startsWith('image/')) {
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.classList.add('photo');
-            gallery.appendChild(img);
-          };
-          reader.readAsDataURL(file);
-        }
-      });
-    });
-  </script>
+    <!-- Footer -->
+    <footer>
+        <div class="socials">
+            <a href="https://instagram.com/noveltybrotography">Instagram</a>
+            <a href="mailto:hello@noveltybrotography.com">Book a Shoot</a>
+        </div>
+        <p>© 2024 noveltybrotography | Built with 🔥</p>
+    </footer>
 </body>
 </html>
